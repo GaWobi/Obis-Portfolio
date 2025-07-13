@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Portfolio</title>
+    <title>Ash Ketchum - Pokemon Trainer Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -12,41 +12,57 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+        :root {
+            --primary-red: #DC2626;
+            --pokemon-yellow: #FACC15;
+            --pokemon-blue: #2563EB;
+            --electric-yellow: #FDE047;
+            --grass-green: #22C55E;
+            --water-blue: #3B82F6;
+            --fire-red: #EF4444;
+            --dark-gray: #1F2937;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --text-dark: #374151;
+            --text-light: #6B7280;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
         }
 
         /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+        .header {
             position: fixed;
             top: 0;
             width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--pokemon-yellow);
             z-index: 1000;
-            padding: 1rem 0;
+            transition: all 0.3s ease;
         }
 
-        nav {
+        .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: white;
+            color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .nav-links {
@@ -56,148 +72,216 @@
         }
 
         .nav-links a {
-            color: white;
+            color: var(--text-dark);
             text-decoration: none;
-            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .nav-links a:hover {
-            color: #ffd700;
+            background: var(--pokemon-yellow);
+            color: var(--primary-red);
+            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--pokemon-blue) 0%, var(--primary-red) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="20" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="90" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 1rem;
             animation: fadeInUp 1s ease-out;
         }
 
-        .hero-content p {
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 0.5rem;
+            color: var(--electric-yellow);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.3s both;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .cta-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
+            flex-wrap: wrap;
             animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .btn {
-            padding: 12px 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
             border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
+            border-radius: 50px;
             text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-width: 160px;
+            justify-content: center;
         }
 
         .btn-primary {
-            background: #ffd700;
-            color: #333;
+            background: var(--pokemon-yellow);
+            color: var(--primary-red);
         }
 
         .btn-secondary {
             background: transparent;
-            color: white;
-            border: 2px solid white;
+            color: var(--white);
+            border: 2px solid var(--white);
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--electric-yellow);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-red);
         }
 
         /* Main Content */
-        main {
-            background: white;
-            margin-top: 100vh;
-            min-height: 100vh;
+        .main {
+            padding-top: 80px;
         }
 
         .section {
-            padding: 4rem 0;
-        }
-
-        .section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        /* CV Section */
-        .cv-section {
-            background: #f8f9fa;
-            text-align: center;
-        }
-
-        .cv-content {
-            max-width: 800px;
+            padding: 5rem 2rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .cv-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .cv-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .cv-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .cv-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .cv-card ul {
-            list-style: none;
-            text-align: left;
-        }
-
-        .cv-card li {
-            margin-bottom: 0.5rem;
-            padding-left: 1rem;
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-red);
             position: relative;
         }
 
-        .cv-card li:before {
-            content: "▸";
+        .section-title::after {
+            content: '';
             position: absolute;
-            left: 0;
-            color: #667eea;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pokemon-yellow), var(--primary-red));
+            border-radius: 2px;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: var(--light-gray);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--pokemon-yellow);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-card h3 {
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(250, 204, 21, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 1.5rem;
+            width: 2rem;
+            text-align: center;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: var(--text-dark);
         }
 
         /* Projects Section */
-        .projects-section {
-            background: #f8f9fa;
-        }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -205,91 +289,129 @@
         }
 
         .project-card {
-            background: white;
-            border-radius: 10px;
+            background: var(--white);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--pokemon-yellow);
+            transition: transform 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
         .project-image {
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--pokemon-blue), var(--primary-red));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.2rem;
+            color: var(--white);
+            font-size: 4rem;
         }
 
         .project-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .project-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #333;
+            color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .project-description {
-            margin-bottom: 1rem;
-            color: #666;
-        }
-
-        .project-features {
-            margin-bottom: 1rem;
-        }
-
-        .project-features h4 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-features ul {
-            list-style: none;
-            padding-left: 1rem;
-        }
-
-        .project-features li {
-            margin-bottom: 0.3rem;
-            position: relative;
-        }
-
-        .project-features li:before {
-            content: "✓";
-            position: absolute;
-            left: -1rem;
-            color: #28a745;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .tech-tag {
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
+            background: var(--pokemon-blue);
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
             font-size: 0.8rem;
+            font-weight: 500;
         }
 
         .project-links {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .project-links .btn {
-            padding: 8px 20px;
+            padding: 0.8rem 1.5rem;
             font-size: 0.9rem;
+            min-width: auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--dark-gray);
+            color: var(--white);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--pokemon-yellow);
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--pokemon-yellow);
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--pokemon-yellow);
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--electric-yellow);
+            box-shadow: 0 0 0 3px rgba(253, 224, 71, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
         }
 
         /* Modal */
@@ -300,8 +422,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             z-index: 2000;
+            backdrop-filter: blur(5px);
         }
 
         .modal-content {
@@ -309,79 +432,43 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: white;
+            background: var(--white);
             padding: 2rem;
-            border-radius: 10px;
+            border-radius: 20px;
             max-width: 90%;
             max-height: 90%;
             overflow-y: auto;
+            border: 3px solid var(--pokemon-yellow);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
-        .close {
+        .modal-close {
             position: absolute;
-            top: 10px;
+            top: 15px;
             right: 20px;
-            font-size: 2rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            color: #999;
-        }
-
-        .close:hover {
-            color: #333;
-        }
-
-        .screenshot-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .screenshot {
-            width: 100%;
-            height: 200px;
-            background: #f0f0f0;
-            border-radius: 5px;
+            color: var(--primary-red);
+            background: var(--pokemon-yellow);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
+            transition: all 0.3s ease;
         }
 
-        /* Contact Section */
-        .contact-section {
-            background: #333;
-            color: white;
-            text-align: center;
+        .modal-close:hover {
+            background: var(--primary-red);
+            color: var(--white);
+            transform: scale(1.1);
         }
 
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
+        .modal-title {
             margin-bottom: 1rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
+            color: var(--primary-red);
+            font-size: 2rem;
         }
 
         /* Animations */
@@ -396,35 +483,60 @@
             }
         }
 
-        /* Responsive */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .nav {
+                padding: 1rem;
+            }
+            
             .nav-links {
                 gap: 1rem;
             }
-
-            .hero-content h1 {
-                font-size: 2rem;
+            
+            .hero-content {
+                padding: 0 1rem;
             }
-
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+            
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
+            
+            .project-links {
+                flex-direction: column;
             }
         }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mt-2 { margin-top: 1rem; }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">Portfolio</div>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                ⚡ Pokemon Trainer
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#cv">CV</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -434,108 +546,227 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>John Doe</h1>
-            <p>Full Stack Developer & Software Engineer</p>
+            <h1 class="hero-title">⚡ Ash Ketchum</h1>
+            <p class="hero-subtitle">Pokemon Master & Full Stack Developer</p>
+            <p class="hero-description">"I wanna be the very best, like no one ever was!"</p>
             <div class="cta-buttons">
-                <a href="#cv" class="btn btn-primary">View CV</a>
-                <a href="#projects" class="btn btn-secondary">My Projects</a>
+                <a href="#skills" class="btn btn-primary">
+                    <i class="fas fa-user"></i> View Skills
+                </a>
+                <a href="#projects" class="btn btn-secondary">
+                    <i class="fas fa-code"></i> My Projects
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <main>
-        <!-- CV Section -->
-        <section id="cv" class="section cv-section">
-            <div class="container">
-                <h2>Curriculum Vitae</h2>
-                <div class="cv-content">
-                    <button onclick="downloadCV()" class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download CV
-                    </button>
-                    
-                    <div class="cv-grid">
-                        <div class="cv-card">
-                            <h3>Programming Skills</h3>
-                            <ul>
-                                <li>JavaScript (ES6+)</li>
-                                <li>Python</li>
-                                <li>Java</li>
-                                <li>C++</li>
-                                <li>HTML5 & CSS3</li>
-                                <li>React.js</li>
-                                <li>Node.js</li>
-                                <li>MongoDB</li>
-                                <li>MySQL</li>
-                            </ul>
+    <main class="main">
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section">
+            <h2 class="section-title">🎒 Trainer Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><i class="fas fa-code"></i> Programming Types</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <span class="skill-icon">⚡</span>
+                            <span class="skill-name">JavaScript (Electric-type)</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-icon">🐍</span>
+                            <span class="skill-name">Python (Poison-type)</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-icon">☕</span>
+                            <span class="skill-name">Java (Normal-type)</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-icon">🔥</span>
+                            <span class="skill-name">React.js (Fire-type)</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-icon">🌊</span>
+                            <span class="skill-name">Node.js (Water-type)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3><i class="fas fa-database"></i> Database Mastery</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <span class="skill-icon">🍃</span>
+                            <span class="skill-name">MongoDB (Grass-type)</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-icon">🌊</span>
+                            <span class="skill-name">PostgreSQL (Water-type)</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-icon">⚡</span>
+                            <span class="skill-name">Redis (Electric-type)</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-icon">🔥</span>
+                            <span class="skill-name">Firebase (Fire-type)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3><i class="fas fa-cloud"></i> Cloud Powers</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <span class="skill-icon">☁️</span>
+                            <span class="skill-name">AWS (Flying-type)</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-icon">🌩️</span>
+                            <span class="skill-name">Google Cloud (Electric-type)</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-icon">🐳</span>
+                            <span class="skill-name">Docker (Water-type)</span>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-icon">⚙️</span>
+                            <span class="skill-name">Kubernetes (Steel-type)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">🎯 Pokemon Adventures</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        🤖
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <i class="fas fa-robot"></i> AI Pokemon Assistant
+                        </h3>
+                        <p class="project-description">
+                            An intelligent Pokemon companion that helps trainers identify Pokemon, suggest battle strategies, and manage their Pokedex using machine learning.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
                         </div>
-                        
-                        <div class="cv-card">
-                            <h3>Certificates</h3>
-                            <ul>
-                                <li>AWS Certified Developer</li>
-                                <li>Google Cloud Platform</li>
-                                <li>MongoDB Certified Developer</li>
-                                <li>React Developer Certification</li>
-                                <li>Python Programming Certificate</li>
-                            </ul>
+                        <div class="project-links">
+                            <button onclick="openModal('ai-assistant')" class="btn btn-primary">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <a href="#" class="btn btn-secondary">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
                         </div>
-                        
-                        <div class="cv-card">
-                            <h3>Seminars Attended</h3>
-                            <ul>
-                                <li>Web Development Bootcamp 2023</li>
-                                <li>AI & Machine Learning Summit</li>
-                                <li>Cloud Computing Conference</li>
-                                <li>DevOps Best Practices</li>
-                                <li>Cybersecurity Fundamentals</li>
-                            </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        📱
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <i class="fas fa-mobile-alt"></i> Pokedex Mobile App
+                        </h3>
+                        <p class="project-description">
+                            A comprehensive mobile application for Pokemon trainers to track their collection, battle statistics, and explore the Pokemon world.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">API</span>
+                        </div>
+                        <div class="project-links">
+                            <button onclick="openModal('pokedex-app')" class="btn btn-primary">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <a href="#" class="btn btn-secondary">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        🌐
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <i class="fas fa-globe"></i> Pokemon Battle Arena
+                        </h3>
+                        <p class="project-description">
+                            A real-time multiplayer web application where trainers can battle their Pokemon teams against others from around the world.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Express</span>
+                        </div>
+                        <div class="project-links">
+                            <button onclick="openModal('battle-arena')" class="btn btn-primary">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <a href="#" class="btn btn-secondary">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section projects-section">
-            <div class="container">
-                <h2>Software Developed (1st Year to 4th Year)</h2>
-                <div class="projects-grid" id="projectsGrid">
-                    <!-- Projects will be loaded here by JavaScript -->
-                </div>
-            </div>
-        </section>
-
         <!-- Contact Section -->
         <section id="contact" class="section contact-section">
-            <div class="container">
-                <h2>Get In Touch</h2>
-                <div class="contact-form">
-                    <form onsubmit="submitContact(event)">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+            <h2 class="section-title">📱 Contact This Pokemon Master</h2>
+            <div class="contact-form">
+                <p class="contact-intro">Ready to join my Pokemon journey? Let's connect!</p>
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name" class="form-label">
+                            <i class="fas fa-user"></i> Trainer Name
+                        </label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Enter your trainer name..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i> Email
+                        </label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@pokemon.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            <i class="fas fa-comment"></i> Message
+                        </label>
+                        <textarea id="message" name="message" class="form-input form-textarea" placeholder="Tell me about your Pokemon journey..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
 
-    <!-- Project Modal -->
-    <div id="projectModal" class="modal">
+    <!-- Modal -->
+    <div id="modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modalContent"></div>
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
         </div>
     </div>
 
@@ -554,183 +785,66 @@
             });
         });
 
-        // Download CV function
-        async function downloadCV() {
-            try {
-                const response = await fetch('/api/download-cv');
-                if (response.ok) {
-                    const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'John_Doe_CV.pdf';
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                    document.body.removeChild(a);
-                } else {
-                    alert('CV file not found. Please contact the administrator.');
-                }
-            } catch (error) {
-                console.error('Error downloading CV:', error);
-                alert('Error downloading CV. Please try again later.');
-            }
-        }
-
-        // Load projects
-        async function loadProjects() {
-            try {
-                const response = await fetch('/api/projects');
-                const projects = await response.json();
-                
-                const projectsGrid = document.getElementById('projectsGrid');
-                projectsGrid.innerHTML = '';
-                
-                projects.forEach(project => {
-                    const projectCard = document.createElement('div');
-                    projectCard.className = 'project-card';
-                    projectCard.innerHTML = `
-                        <div class="project-image">
-                            <i class="fas fa-code" style="font-size: 2rem;"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">${project.title}</h3>
-                            <p class="project-description">${project.description}</p>
-                            
-                            <div class="project-features">
-                                <h4>Features:</h4>
-                                <ul>
-                                    ${project.features.map(feature => `<li>${feature}</li>`).join('')}
-                                </ul>
-                            </div>
-                            
-                            <div class="project-tech">
-                                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                            </div>
-                            
-                            <div class="project-links">
-                                <button onclick="openProjectModal(${project.id})" class="btn btn-primary">
-                                    View Details
-                                </button>
-                                <a href="${project.githubUrl}" target="_blank" class="btn btn-secondary">
-                                    <i class="fab fa-github"></i> GitHub
-                                </a>
-                            </div>
-                        </div>
-                    `;
-                    projectsGrid.appendChild(projectCard);
-                });
-            } catch (error) {
-                console.error('Error loading projects:', error);
-            }
-        }
-
-        // Open project modal
-        async function openProjectModal(projectId) {
-            try {
-                const response = await fetch('/api/projects');
-                const projects = await response.json();
-                const project = projects.find(p => p.id === projectId);
-                
-                if (project) {
-                    const modalContent = document.getElementById('modalContent');
-                    modalContent.innerHTML = `
-                        <h2>${project.title}</h2>
-                        <p>${project.description}</p>
-                        
-                        <h3>Features:</h3>
-                        <ul>
-                            ${project.features.map(feature => `<li>${feature}</li>`).join('')}
-                        </ul>
-                        
-                        <h3>Technologies Used:</h3>
-                        <div class="project-tech">
-                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                        </div>
-                        
-                        <h3>Screenshots:</h3>
-                        <div class="screenshot-gallery">
-                            ${project.screenshots.map(screenshot => `
-                                <div class="screenshot">
-                                    <i class="fas fa-image"></i><br>
-                                    Screenshot Preview
-                                </div>
-                            `).join('')}
-                        </div>
-                        
-                        ${project.hardware ? `
-                            <h3>Hardware Used:</h3>
-                            <ul>
-                                ${project.hardware.map(hw => `<li>${hw}</li>`).join('')}
-                            </ul>
-                        ` : ''}
-                        
-                        <div style="margin-top: 2rem;">
-                            <a href="${project.githubUrl}" target="_blank" class="btn btn-primary">
-                                <i class="fab fa-github"></i> View on GitHub
-                            </a>
-                            <a href="${project.liveUrl}" target="_blank" class="btn btn-secondary">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    `;
-                    
-                    document.getElementById('projectModal').style.display = 'block';
-                }
-            } catch (error) {
-                console.error('Error opening project modal:', error);
-            }
-        }
-
-        // Close modal
-        function closeModal() {
-            document.getElementById('projectModal').style.display = 'none';
-        }
-
-        // Submit contact form
-        async function submitContact(event) {
-            event.preventDefault();
+        // Modal functionality
+        function openModal(projectId) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
             
-            const formData = new FormData(event.target);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                message: formData.get('message')
+            const projects = {
+                'ai-assistant': {
+                    title: '🤖 AI Pokemon Assistant',
+                    description: 'An intelligent Pokemon companion powered by machine learning that revolutionizes how trainers interact with the Pokemon world.',
+                    features: [
+                        'Real-time Pokemon identification using computer vision',
+                        'Battle strategy recommendations based on type effectiveness',
+                        'Pokedex management with advanced search and filtering',
+                        'Personality analysis of Pokemon based on behavior patterns',
+                        'Training progress tracking and optimization suggestions'
+                    ],
+                    technologies: ['Python', 'TensorFlow', 'OpenCV', 'React', 'Node.js', 'MongoDB', 'REST API'],
+                    github: 'https://github.com/ash-ketchum/ai-pokemon-assistant',
+                    demo: 'https://ai-pokemon-assistant.vercel.app'
+                },
+                'pokedex-app': {
+                    title: '📱 Pokedex Mobile App',
+                    description: 'A comprehensive mobile application that brings the Pokemon world to your fingertips with modern design and seamless functionality.',
+                    features: [
+                        'Complete Pokemon database with detailed stats and information',
+                        'Personal collection tracking and management',
+                        'Battle history and statistics analysis',
+                        'Offline mode for usage without internet connection',
+                        'Social features to connect with other trainers'
+                    ],
+                    technologies: ['React Native', 'Firebase', 'Redux', 'Pokemon API', 'AsyncStorage', 'Push Notifications'],
+                    github: 'https://github.com/ash-ketchum/pokedex-mobile',
+                    demo: 'https://play.google.com/store/apps/details?id=com.ashketchum.pokedex'
+                },
+                'battle-arena': {
+                    title: '🌐 Pokemon Battle Arena',
+                    description: 'A real-time multiplayer battleground where trainers from around the world can test their skills and strategies.',
+                    features: [
+                        'Real-time multiplayer battles with WebSocket technology',
+                        'Advanced matchmaking system based on skill level',
+                        'Team builder with strategy optimization tools',
+                        'Tournament mode with ranking systems',
+                        'Spectator mode for learning from top players'
+                    ],
+                    technologies: ['React', 'Socket.io', 'Node.js', 'MongoDB', 'Express', 'Redis', 'JWT Authentication'],
+                    github: 'https://github.com/ash-ketchum/pokemon-battle-arena',
+                    demo: 'https://pokemon-battle-arena.netlify.app'
+                }
             };
-            
-            try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    alert('Thank you for your message! I will get back to you soon.');
-                    event.target.reset();
-                } else {
-                    alert('Error sending message. Please try again.');
-                }
-            } catch (error) {
-                console.error('Error submitting contact form:', error);
-                alert('Error sending message. Please try again.');
-            }
-        }
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('projectModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
-
-        // Load projects on page load
-        document.addEventListener('DOMContentLoaded', loadProjects);
-    </script>
-</body>
-</html>
+            const project = projects[projectId];
+            if (project) {
+                modalBody.innerHTML = `
+                    <h2 class="modal-title">${project.title}</h2>
+                    <p class="mb-2" style="font-size: 1.1rem; color: var(--text-light);">${project.description}</p>
+                    
+                    <h3 style="color: var(--primary-red); margin: 1.5rem 0 1rem 0;">
+                        <i class="fas fa-star"></i> Key Features
+                    </h3>
+                    <ul style="margin-bottom: 1.5rem; list-style: none;">
+                        ${project.features.map(feature => `
+                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--pokemon-yellow);">⚡</span
