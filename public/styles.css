@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -20,8 +22,8 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
     color: var(--text-dark);
     background: var(--white);
     overflow-x: hidden;
@@ -43,8 +45,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
+    padding: 1rem 0.5rem;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
@@ -66,16 +68,17 @@ body {
 .nav-links a {
     color: var(--text-dark);
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.15rem;
     border-radius: 25px;
     transition: all 0.3s ease;
     font-weight: 500;
 }
 
 .nav-links a:hover {
-    background: var(--pokemon-yellow);
-    color: var(--primary-red);
+    background: var(--fire-red);
+    color: var(--white);
     transform: translateY(-2px);
+    padding: 0.5rem;
 }
 
 /* Hero Section */
@@ -516,4 +519,4 @@ body {
 /* Utility Classes */
 .text-center { text-align: center; }
 .mb-2 { margin-bottom: 1rem; }
-.mt-2 {
+.mt-2 {}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ash Ketchum - Pokemon Trainer Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
@@ -12,7 +13,7 @@
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                ⚡
+                R
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -44,7 +45,7 @@
     <main class="main">
         <!-- Skills Section -->
         <section id="skills" class="section skills-section">
-            <h2 class="section-title">🎒 Trainer Skills</h2>
+            <h2 class="section-title">🎒 Skills</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <h3><i class="fas fa-code"></i> Programming Types</h3>
@@ -120,7 +121,7 @@
 
         <!-- Projects Section -->
         <section id="projects" class="section">
-            <h2 class="section-title">🎯 Pokemon Adventures</h2>
+            <h2 class="section-title">🎯 Adventures</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
@@ -128,16 +129,17 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">
-                            <i class="fas fa-robot"></i> AI Pokemon Assistant
+                            <i class="fas fa-robot"></i> NPI Inventory Management
                         </h3>
                         <p class="project-description">
                             An intelligent Pokemon companion that helps trainers identify Pokemon, suggest battle strategies, and manage their Pokedex using machine learning.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">Excel</span>
+                            <span class="tech-tag">Sqlite</span>
+                            <span class="tech-tag">Sqlite</span>
                         </div>
                         <div class="project-links">
                             <button onclick="openModal('ai-assistant')" class="btn btn-primary">
@@ -156,15 +158,15 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">
-                            <i class="fas fa-mobile-alt"></i> Pokedex Mobile App
+                            <i class="fas fa-mobile-alt"></i> AgriKa 
                         </h3>
                         <p class="project-description">
                             A comprehensive mobile application for Pokemon trainers to track their collection, battle statistics, and explore the Pokemon world.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">Flask</span>
                             <span class="tech-tag">API</span>
                         </div>
                         <div class="project-links">
@@ -184,7 +186,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">
-                            <i class="fas fa-globe"></i> Pokemon Battle Arena
+                            <i class="fas fa-globe"></i> Haste-urant
                         </h3>
                         <p class="project-description">
                             A real-time multiplayer web application where trainers can battle their Pokemon teams against others from around the world.
@@ -265,6 +267,24 @@
             });
         });
 
+        window.addEventListener('DOMContentLoaded', () => {
+            // Hero title: rotate and fade in
+            gsap.from(".hero-title", { duration: 1, rotation: 720, scale: 0, opacity: 0, ease: "back.out(1.7)" });
+            // Hero subtitle: slide in from bottom with bounce
+            gsap.from(".hero-subtitle", { duration: 1, y: 100, opacity: 0, delay: 0.5, ease: "bounce.out" });
+            // Hero description: flip in
+            gsap.from(".hero-description", { duration: 1, rotationX: 90, opacity: 0, delay: 1, transformOrigin: "left bottom", ease: "power4.out" });
+            // CTA buttons: staggered pop-in
+            gsap.from(".cta-buttons a", {
+                duration: 0.7,
+                scale: 0,
+                opacity: 0,
+                delay: 1.5,
+                stagger: 0.2,
+                ease: "elastic.out(1, 0.5)"
+            });
+        });
+
         // Modal functionality
         function openModal(projectId) {
             const modal = document.getElementById('modal');
@@ -327,4 +347,26 @@
                     <ul style="margin-bottom: 1.5rem; list-style: none;">
                         ${project.features.map(feature => `
                             <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
-                                <span style="position: absolute; left: 0; color: var(--pokemon-yellow);">⚡</span
+                                <span style="position: absolute; left: 0; color: var(--pokemon-yellow);">⚡</span>
+                                ${feature}
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <h3 style="color: var(--primary-red); margin: 1.5rem 0 1rem 0;">
+                        <i class="fas fa-code"></i> Technologies Used
+                    </h3>
+                    <p style="margin-bottom: 1.5rem;">
+                        ${project.technologies.join(', ')}
+                    </p>
+                    <div class="project-links">
+                        <a href="${project.github}" class="btn btn-secondary" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                        <a href="${project.demo}" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-eye"></i> Live Demo
+                        </a>
+                    </div>
+                `;
+                modal.style.display = 'block';
+            }
+        }       
