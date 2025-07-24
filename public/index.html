@@ -12,13 +12,12 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">
-                R
-            </div>
+            <div class="logo">Robby</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#practicum">Practicum</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -26,17 +25,24 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Robby Galang</h1>
-            <p class="hero-subtitle">Full Stack Developer</p>
-            <p class="hero-description">Building clean, modern web applications with a focus on usability and performance.</p>
-            <div class="cta-buttons">
-                <a href="#skills" class="btn btn-primary">
-                    <i class="fas fa-user"></i> View Skills
-                </a>
-                <a href="#projects" class="btn btn-secondary">
-                    <i class="fas fa-code"></i> My Projects
-                </a>
+        <div class="hero-grid">
+            <div class="hero-image">
+                <div class="profile-img-bg">
+                    <img src="images/robby.png" alt="Robby Galang" class="profile-img">
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hello! I’m <br>
+                    <span class="highlight">Robby</span> <span class="hero-title-bold">Galang</span>
+                </h1>
+                <p class="hero-description">
+                    <span class="bold">A software engineer</span> who thrives on turning challenges into opportunities with thoughtful code and creative problem-solving.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Projects</a>
+                    <a href="#about" class="btn btn-secondary">About Me</a>
+                </div>
             </div>
         </div>
     </section>
@@ -128,7 +134,7 @@
 
     <script>
         // Smooth scrolling for navigation links
-        document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('.nav-links a[href^="#"], .cta-buttons a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -143,17 +149,10 @@
 
         // GSAP hero animations
         window.addEventListener('DOMContentLoaded', () => {
-            gsap.from(".hero-title", { duration: 1, rotation: 10, scale: 0, opacity: 0, ease: "back.out(1.7)" });
-            gsap.from(".hero-subtitle", { duration: 1, y: 100, opacity: 0, delay: 0.5, ease: "bounce.out" });
-            gsap.from(".hero-description", { duration: 1, rotationX: 90, opacity: 0, delay: 1, transformOrigin: "left bottom", ease: "power4.out" });
-            gsap.from(".cta-buttons a", {
-                duration: 0.7,
-                scale: 0,
-                opacity: 0,
-                delay: 1.5,
-                stagger: 0.2,
-                ease: "elastic.out(1, 0.5)"
-            });
+            gsap.from(".profile-img-bg", { duration: 1, scale: 0.8, opacity: 0, ease: "power2.out" });
+            gsap.from(".hero-title", { duration: 1, y: 50, opacity: 0, delay: 0.3, ease: "power3.out" });
+            gsap.from(".hero-description", { duration: 1, y: 50, opacity: 0, delay: 0.6, ease: "power3.out" });
+            gsap.from(".cta-buttons .btn", { duration: 1, scale: 0.8, opacity: 0, delay: 0.9, stagger: 0.2, ease: "elastic.out(1, 0.5)" });
 
             // Render projects dynamically
             const projects = [
