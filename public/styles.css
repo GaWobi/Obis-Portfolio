@@ -6,26 +6,32 @@
     box-sizing: border-box;
 }
 
+/* Modern, eye-friendly color palette */
 :root {
-    --primary-red: #DC2626;
-    --pokemon-yellow: #FACC15;
-    --pokemon-blue: #2563EB;
-    --electric-yellow: #FDE047;
-    --grass-green: #22C55E;
-    --water-blue: #3B82F6;
-    --fire-red: #EF4444;
-    --dark-gray: #1F2937;
-    --light-gray: #F3F4F6;
-    --white: #FFFFFF;
-    --text-dark: #374151;
-    --text-light: #6B7280;
+    --primary: #2563eb;           /* Soft blue */
+    --primary-dark: #1e40af;
+    --accent: #38bdf8;            /* Light blue accent */
+    --background: #f8fafc;        /* Very light gray */
+    --surface: #ffffff;           /* Card background */
+    --surface-alt: #e0e7ef;       /* Subtle card alt */
+    --text-main: #1e293b;         /* Dark slate */
+    --text-secondary: #64748b;    /* Muted slate */
+    --border: #e2e8f0;            /* Light border */
+    --shadow: 0 4px 24px rgba(30, 41, 59, 0.07);
+    --shadow-hover: 0 8px 32px rgba(30, 41, 59, 0.12);
+    --btn-primary-bg: var(--primary);
+    --btn-primary-text: #fff;
+    --btn-secondary-bg: var(--surface-alt);
+    --btn-secondary-text: var(--primary-dark);
+    --btn-hover-bg: var(--accent);
+    --btn-hover-text: var(--primary-dark);
 }
 
 body {
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.5;
-    color: var(--text-dark);
-    background: var(--white);
+    background: var(--background);
+    color: var(--text-main);
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
@@ -34,29 +40,27 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 3px solid var(--pokemon-yellow);
+    background: var(--surface);
+    border-bottom: 1.5px solid var(--border);
+    box-shadow: var(--shadow);
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: background 0.3s;
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0.5rem;
-    max-width: 1300px;
+    padding: 1rem 2rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--primary-red);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    color: var(--primary);
+    letter-spacing: 2px;
 }
 
 .nav-links {
@@ -66,19 +70,19 @@ body {
 }
 
 .nav-links a {
-    color: var(--text-dark);
+    color: var(--text-main);
     text-decoration: none;
-    padding: 0.5rem 0.15rem;
+    padding: 0.5rem 1rem;
     border-radius: 25px;
-    transition: all 0.3s ease;
+    transition: background 0.2s, color 0.2s;
     font-weight: 500;
 }
 
 .nav-links a:hover {
-    background: var(--fire-red);
-    color: var(--white);
-    transform: translateY(-2px);
-    padding: 0.5rem;
+    border-bottom: 2px solid var(--accent);
+    border-radius: 0;
+    background: none;
+    color: var(--primary);
 }
 
 /* Hero Section */
@@ -86,25 +90,14 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--pokemon-blue) 0%, var(--primary-red) 100%);
-    color: var(--white);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: var(--surface);
     position: relative;
     overflow: hidden;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="20" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="90" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-    pointer-events: none;
-}
-
 .hero-content {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 2rem;
     text-align: center;
@@ -115,21 +108,22 @@ body {
 .hero-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1rem;
-    animation: fadeInUp 1s ease-out;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .hero-subtitle {
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     margin-bottom: 0.5rem;
-    color: var(--electric-yellow);
-    animation: fadeInUp 1s ease-out 0.2s both;
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .hero-description {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    color: var(--surface);
     opacity: 0.9;
-    animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 .cta-buttons {
@@ -137,49 +131,39 @@ body {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    animation: fadeInUp 1s ease-out 0.6s both;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.8rem;
     border: none;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     cursor: pointer;
-    min-width: 160px;
+    min-width: 140px;
     justify-content: center;
 }
 
 .btn-primary {
-    background: var(--pokemon-yellow);
-    color: var(--primary-red);
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
 }
 
 .btn-secondary {
-    background: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+    border: 1.5px solid var(--primary);
 }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.btn-primary:hover {
-    background: var(--electric-yellow);
-    transform: translateY(-3px) scale(1.05);
-}
-
-.btn-secondary:hover {
-    background: var(--white);
-    color: var(--primary-red);
+.btn:hover, .btn:focus {
+    background: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+    box-shadow: var(--shadow-hover);
 }
 
 /* Main Content */
@@ -188,63 +172,66 @@ body {
 }
 
 .section {
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--primary-red);
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    color: var(--primary-dark);
+    font-weight: 700;
+    letter-spacing: 1px;
     position: relative;
 }
 
 .section-title::after {
     content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--pokemon-yellow), var(--primary-red));
+    display: block;
+    margin: 0.7rem auto 0 auto;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
     border-radius: 2px;
 }
 
 /* Skills Section */
 .skills-section {
-    background: var(--light-gray);
+    background: var(--surface-alt);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
 .skill-card {
-    background: var(--white);
+    background: var(--surface);
     padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    border: 3px solid var(--pokemon-yellow);
-    transition: transform 0.3s ease;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1.5px solid var(--border);
+    transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .skill-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-6px) scale(1.02);
 }
 
 .skill-card h3 {
-    color: var(--primary-red);
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-weight: 600;
 }
 
 .skill-list {
@@ -258,106 +245,97 @@ body {
     margin-bottom: 1rem;
     padding: 0.5rem;
     border-radius: 10px;
-    transition: background 0.3s ease;
+    transition: background 0.2s;
 }
 
 .skill-item:hover {
-    background: rgba(250, 204, 21, 0.1);
+    background: var(--surface-alt);
 }
 
 .skill-icon {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     width: 2rem;
     text-align: center;
+    color: var(--primary);
 }
 
 .skill-name {
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--text-main);
 }
 
 /* Projects Section */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2rem;
 }
 
 .project-card {
-    background: var(--white);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 3px solid var(--pokemon-yellow);
-    transition: transform 0.3s ease;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1.5px solid var(--border);
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-8px) scale(1.03);
 }
 
 .project-image {
-    height: 200px;
-    background: linear-gradient(135deg, var(--pokemon-blue), var(--primary-red));
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
-    font-size: 4rem;
-}
-
-.project-content {
-    padding: 2rem;
+    padding: 2rem 0 1rem 0;
+    background: var(--surface-alt);
 }
 
 .project-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-red);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
 }
 
 .project-description {
-    margin-bottom: 1.5rem;
-    color: var(--text-light);
-    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
 }
 
 .project-tech {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .tech-tag {
-    background: var(--pokemon-blue);
-    color: var(--white);
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    background: var(--accent);
+    color: var(--surface);
+    border-radius: 12px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    display: inline-block;
 }
 
 .project-links {
+    margin-top: 1rem;
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.project-links .btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-    min-width: auto;
+    gap: 0.5rem;
 }
 
 /* Contact Section */
 .contact-section {
-    background: var(--dark-gray);
-    color: var(--white);
+    background: var(--surface-alt);
+    color: var(--text-main);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
 }
 
 .contact-form {
@@ -368,8 +346,8 @@ body {
 .contact-intro {
     text-align: center;
     margin-bottom: 2rem;
-    color: var(--pokemon-yellow);
-    font-size: 1.2rem;
+    color: var(--primary);
+    font-size: 1.1rem;
 }
 
 .form-group {
@@ -379,29 +357,29 @@ body {
 .form-label {
     display: block;
     margin-bottom: 0.5rem;
-    color: var(--pokemon-yellow);
+    color: var(--primary-dark);
     font-weight: 600;
 }
 
 .form-input {
     width: 100%;
     padding: 1rem;
-    border: 2px solid var(--pokemon-yellow);
+    border: 1.5px solid var(--border);
     border-radius: 10px;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    transition: border-color 0.3s ease;
+    background: var(--surface);
+    color: var(--text-main);
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .form-input:focus {
     outline: none;
-    border-color: var(--electric-yellow);
-    box-shadow: 0 0 0 3px rgba(253, 224, 71, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
 }
 
 .form-input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--text-secondary);
 }
 
 .form-textarea {
@@ -417,7 +395,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(30, 41, 59, 0.7);
     z-index: 2000;
     backdrop-filter: blur(5px);
 }
@@ -427,14 +405,14 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--white);
+    background: var(--surface);
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 18px;
     max-width: 90%;
     max-height: 90%;
     overflow-y: auto;
-    border: 3px solid var(--pokemon-yellow);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 1.5px solid var(--accent);
+    box-shadow: var(--shadow-hover);
 }
 
 .modal-close {
@@ -443,26 +421,26 @@ body {
     right: 20px;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--primary-red);
-    background: var(--pokemon-yellow);
+    color: var(--primary);
+    background: var(--accent);
     width: 40px;
     height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
 .modal-close:hover {
-    background: var(--primary-red);
-    color: var(--white);
+    background: var(--primary);
+    color: var(--surface);
     transform: scale(1.1);
 }
 
 .modal-title {
     margin-bottom: 1rem;
-    color: var(--primary-red);
+    color: var(--primary-dark);
     font-size: 2rem;
 }
 
@@ -478,39 +456,22 @@ body {
     }
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .nav {
         padding: 1rem;
     }
-    
-    .nav-links {
-        gap: 1rem;
-    }
-    
-    .hero-content {
-        padding: 0 1rem;
-    }
-    
-    .section {
-        padding: 3rem 1rem;
-    }
-    
     .skills-grid,
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+    .section {
+        padding: 2rem 1rem;
+    }
     .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
     .project-links {
         flex-direction: column;
     }
@@ -519,4 +480,4 @@ body {
 /* Utility Classes */
 .text-center { text-align: center; }
 .mb-2 { margin-bottom: 1rem; }
-.mt-2 {}
+.mt-2 { margin-top: 1rem; }
