@@ -12,7 +12,8 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">Robby</div>
+            <div class="logo">Robby Galang</div>
+            <button class="nav-toggle" aria-label="Open navigation">&#9776;</button>
             <ul class="nav-links">
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -134,9 +135,15 @@
 
     <script>
         // Smooth scrolling for navigation links
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links and hero buttons
         document.querySelectorAll('.nav-links a[href^="#"], .cta-buttons a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                document.querySelector('.nav-links').classList.remove('active'); // Close nav on mobile
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
