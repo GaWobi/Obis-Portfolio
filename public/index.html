@@ -12,38 +12,48 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">Robby Galang</div>
+            <div class="logo">Robby</div>
             <button class="nav-toggle" aria-label="Open navigation">&#9776;</button>
             <ul class="nav-links">
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#practicum">Practicum</a></li>
+                <!--<li><a href="#certifications">Certifications</a></li>
+                <li><a href="#practicum">Practicum</a></li> -->
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
+    <!-- Background Balls -->
+    <div class="background-balls">
+        <div class="blur-ball" id="blur-ball-1"></div>
+        <div class="blur-ball" id="blur-ball-2"></div>
+        <div class="blur-ball" id="blur-ball-3"></div>
+        <div class="blur-ball" id="blur-ball-4"></div>
+        <div class="blur-ball" id="blur-ball-5"></div>
+        <div class="blur-ball" id="blur-ball-6"></div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-grid">
             <div class="hero-image">
-                <div class="profile-img-bg">
-                    <img src="images/robby.png" alt="Robby Galang" class="profile-img">
-                </div>
+            <div class="profile-img-bg">
+                <img src="images/robby.png" alt="Robby Galang" class="profile-img">
+            </div>
             </div>
             <div class="hero-content">
-                <h1 class="hero-title">
-                    Hello! I’m <br>
-                    <span class="highlight">Robby</span> <span class="hero-title-bold">Galang</span>
-                </h1>
-                <p class="hero-description">
-                    <span class="bold">A software engineer</span> who thrives on turning challenges into opportunities with thoughtful code and creative problem-solving.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Projects</a>
-                    <a href="#about" class="btn btn-secondary">About Me</a>
-                </div>
+            <h1 class="hero-title">
+                Hello! I’m <br>
+                <span class="highlight">Robby</span> <span class="hero-title-bold">Galang</span>
+            </h1>
+            <p class="hero-description">
+                A <span class="bold">software engineer</span> who thrives on turning challenges into opportunities with thoughtful code and creative problem-solving.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="files/ROBBY CV.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Download my CV</a>
+
+            </div>
             </div>
         </div>
     </section>
@@ -52,75 +62,163 @@
     <main class="main">
         <!-- Skills Section -->
         <section id="skills" class="section skills-section">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
-                    <ul class="skill-list">
-                        <li class="skill-item"><span class="skill-icon"><i class="fab fa-js"></i></span><span class="skill-name">JavaScript</span></li>
-                        <li class="skill-item"><span class="skill-icon"><i class="fab fa-python"></i></span><span class="skill-name">Python</span></li>
-                        <li class="skill-item"><span class="skill-icon"><i class="fab fa-java"></i></span><span class="skill-name">Java</span></li>
-                        <li class="skill-item"><span class="skill-icon"><i class="fab fa-react"></i></span><span class="skill-name">React.js</span></li>
-                        <li class="skill-item"><span class="skill-icon"><i class="fab fa-node-js"></i></span><span class="skill-name">Node.js</span></li>
-                    </ul>
+            <h2 class="skills-title">Skills & Technologies</h2>
+            <div class="skills-icon-grid">
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/html5.svg" alt="HTML5">
+                    <span class="skill-icon-label">HTML5</span>
                 </div>
-                <div class="skill-card">
-                    <h3><i class="fas fa-database"></i> Databases</h3>
-                    <ul class="skill-list">
-                        <li class="skill-item"><span class="skill-icon"><i class="fas fa-leaf"></i></span><span class="skill-name">MongoDB</span></li>
-                        <li class="skill-item"><span class="skill-icon"><i class="fas fa-water"></i></span><span class="skill-name">PostgreSQL</span></li>
-                        <li class="skill-item"><span class="skill-icon"><i class="fas fa-bolt"></i></span><span class="skill-name">Redis</span></li>
-                        <li class="skill-item"><span class="skill-icon"><i class="fas fa-fire"></i></span><span class="skill-name">Firebase</span></li>
-                    </ul>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/css3.svg" alt="CSS3">
+                    <span class="skill-icon-label">CSS3</span>
                 </div>
-                <div class="skill-card">
-                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-                    <ul class="skill-list">
-                        <li class="skill-item"><span class="skill-icon"><i class="fab fa-aws"></i></span><span class="skill-name">AWS</span></li>
-                        <li class="skill-item"><span class="skill-icon"><i class="fab fa-google"></i></span><span class="skill-name">Google Cloud</span></li>
-                        <li class="skill-item"><span class="skill-icon"><i class="fab fa-docker"></i></span><span class="skill-name">Docker</span></li>
-                        <li class="skill-item"><span class="skill-icon"><i class="fas fa-cogs"></i></span><span class="skill-name">Kubernetes</span></li>
-                    </ul>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/javascript.svg" alt="JavaScript">
+                    <span class="skill-icon-label">JavaScript</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/python.svg" alt="Python">
+                    <span class="skill-icon-label">Python</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/react.svg" alt="React">
+                    <span class="skill-icon-label">React</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/nodedotjs.svg" alt="Node.js">
+                    <span class="skill-icon-label">Node.js</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/java.svg" alt="Java">
+                    <span class="skill-icon-label">Java</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/mysql.svg" alt="MySQL">
+                    <span class="skill-icon-label">MySQL</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
+                    <span class="skill-icon-label">GitHub</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/amazonaws.svg" alt="AWS">
+                    <span class="skill-icon-label">AWS</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/firebase.svg" alt="Firebase">
+                    <span class="skill-icon-label">Firebase</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/bootstrap.svg" alt="Bootstrap">
+                    <span class="skill-icon-label">Bootstrap</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/visualstudiocode.svg" alt="VS Code">
+                    <span class="skill-icon-label">VS Code</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tailwindcss.svg" alt="Tailwind CSS">
+                    <span class="skill-icon-label">Tailwind CSS</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/typescript.svg" alt="TypeScript">
+                    <span class="skill-icon-label">TypeScript</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/jupyter.svg" alt="Jupyter">
+                    <span class="skill-icon-label">Jupyter</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/unity.svg" alt="Unity">
+                    <span class="skill-icon-label">Unity</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/canva.svg" alt="Canva">
+                    <span class="skill-icon-label">Canva</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/xampp.svg" alt="XAMPP">
+                    <span class="skill-icon-label">XAMPP</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/php.svg" alt="PHP">
+                    <span class="skill-icon-label">PHP</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/csharp.svg" alt="C#">
+                    <span class="skill-icon-label">C#</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/cplusplus.svg" alt="C++">
+                    <span class="skill-icon-label">C++</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/sqlite.svg" alt="SQLite">
+                    <span class="skill-icon-label">SQLite</span>
+                </div>
+                <div class="skill-icon-card">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/xamarin.svg" alt="Xamarin">
+                    <span class="skill-icon-label">Xamarin</span>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="section">
+        <section id="projects" class="projects-section">
+            <div class="project-counter">
+                <span id="current-project">1</span> / <span id="total-projects">7</span>
+            </div>
+            
             <h2 class="section-title">Projects</h2>
-            <div id="projects-grid" class="projects-grid"></div>
+            
+            <div class="gallery-container">
+                <button class="nav-btn nav-prev" onclick="prevProject()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="gallery-wrapper">
+                    <div class="gallery-track" id="gallery-track">
+                        <!-- Project slides will be dynamically generated -->
+                    </div>
+                </div>
+                
+                <button class="nav-btn nav-next" onclick="nextProject()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="nav-controls">
+                    <button class="nav-btn nav-prev" onclick="prevProject()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn nav-next" onclick="nextProject()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="gallery-indicators" id="indicators">
+                <!-- Indicators will be dynamically generated -->
+            </div>
         </section>
+
 
         <!-- Contact Section -->
         <section id="contact" class="section contact-section">
             <h2 class="section-title">Contact Me</h2>
-            <div class="contact-form">
-                <p class="contact-intro">Let's connect! Feel free to reach out for collaboration or just to say hi.</p>
-                <form onsubmit="handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="name" class="form-label">
-                            <i class="fas fa-user"></i> Name
-                        </label>
-                        <input type="text" id="name" name="name" class="form-input" placeholder="Your name..." required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="form-label">
-                            <i class="fas fa-envelope"></i> Email
-                        </label>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">
-                            <i class="fas fa-comment"></i> Message
-                        </label>
-                        <textarea id="message" name="message" class="form-input form-textarea" placeholder="Your message..." required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </div>
-                </form>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a class="contact-link">rpgalang20@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/robby-galang" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a class="contact-link">+63 956 471 6836</a>
+                </div>
+                
             </div>
         </section>
     </main>
@@ -134,7 +232,7 @@
     </div>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Responsive nav toggle
         document.querySelector('.nav-toggle').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
@@ -156,65 +254,259 @@
 
         // GSAP hero animations
         window.addEventListener('DOMContentLoaded', () => {
+            gsap.from(".profile-img-bg", { duration: 1, scale: 0.8, opacity: 1, ease: "power2.out" });
+            gsap.from(".hero-title", { duration: 1, y: 50, opacity: 1, delay: 0.3, ease: "power3.out" });
+            gsap.from(".hero-description", { duration: 1, y: 50, opacity: 1, delay: 0.6, ease: "power3.out" });
+            gsap.from(".cta-buttons .btn", { duration: 1, scale: 0.8, opacity: 1, delay: 0.9, stagger: 0.2, ease: "elastic.out(1, 0.5)" });
+
+            // Floating blurry balls
+            function dvdBounce(ball, bounds) {
+                let x = Math.random() * (bounds.w - bounds.size);
+                let y = Math.random() * (bounds.h - bounds.size);
+                let dx = (Math.random() > 0.5 ? 1 : -1) * (60 + Math.random() * 40);
+                let dy = (Math.random() > 0.5 ? 1 : -1) * (60 + Math.random() * 40);
+
+                function animate() {
+                    x += dx * 0.016;
+                    y += dy * 0.016;
+                    if (x <= 0 || x >= bounds.w - bounds.size) dx *= -1;
+                    if (y <= 0 || y >= bounds.h - bounds.size) dy *= -1;
+                    ball.style.left = x + "px";
+                    ball.style.top = y + "px";
+                    requestAnimationFrame(animate);
+                }
+                animate();
+            }
+
+            function startBalls() {
+                const balls = [
+                    document.getElementById('blur-ball-1'),
+                    document.getElementById('blur-ball-2'),
+                    document.getElementById('blur-ball-3'),
+                    document.getElementById('blur-ball-4'),
+                    document.getElementById('blur-ball-5'),
+                    document.getElementById('blur-ball-6')
+                ];
+                const bounds = { w: window.innerWidth, h: window.innerHeight, size: 400 };
+                balls.forEach(ball => dvdBounce(ball, bounds));
+            }
+
+            startBalls();
+            window.addEventListener('resize', startBalls);
+            });
+
+        // Modal functionality (stub)
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Message sent!');
+        }
+        // Projects data and functions
+        const projects = [
+            {
+                title: "NPI Inventory Management",
+                description: "A smart inventory system for tracking and managing items, featuring built-in analytics and reporting to improve resource efficiency and oversight.",
+                tech: ["Python", "Flask", "HTML", "Excel", "SQLite"],
+                github: "https://github.com/yourusername/npi-inventory",
+                demo: "#",
+                showDemo: false,
+                showPdf: true,
+                icon: "images/npi.png",
+                pdf: "files/Narrative Report.pdf"
+            },
+            {
+                title: "AgriKa",
+                description: "A deep learning-based rice yield prediction system using CNN-LSTM models and satellite imagery. Combines temporal modeling with ResNet50 and TensorFlow, deployed via AWS.",
+                tech: ["Python", "Flask", "Jupyter", "HTML", "CSS"],
+                github: "https://github.com/ChnelleMlg/Thesis_Web.git",
+                demo: "https://aina-demo.com",
+                showGithub: true,
+                showDemo: false,
+                icon: "images/agrika.png"
+            },
+            {
+                title: "Haste-urant",
+                description: "A contactless web app that streamlines food orders, reduces wait times, and improves customer experience. Tested at Wingspot Cabuyao, it boosts kitchen efficiency and provides data insights to support smarter business decisions.",
+                tech: ["Python", "HTML", "Flask", "API", "JavaScript"],
+                github: "https://github.com/GaWobi/Haste-aurant.git",
+                demo: "https://agrika-demo.com",
+                showGithub: true,
+                showDemo: false,
+                icon: "images/haste.png"
+            },
+            {
+                title: "Bibe Kalma",
+                description: "A Unity-based platformer game where players navigate obstacle-filled levels with smooth controls and pixel-art visuals. Built in C#, it features fast-paced gameplay and responsive mechanics, offering an engaging experience across mobile and desktop platforms.",
+                tech: ["Unity", "C#", "Game Design"],
+                github: "https://github.com/zowowo/Bibe-Kalma.git",
+                showGithub: true,
+                demo: "#",
+                showDemo: false,
+                icon: "images/bibe.png"
+            },
+            {
+                title: "LORO",
+                description: "An ideation for the Microsoft ASEAN AI for Accessibility Hackathon, this game uses AI and culturally familiar adventures to help Filipino children with speech disorders practice speaking through fun, interactive play and real-time feedback.",
+                tech: ["AI", "Game Design"],
+                github: "https://github.com/yourusername/haste-urant",
+                demo: "#",
+                showDemo: false,
+                icon: "images/loro.png"
+            },
+            {
+                title: "GM3",
+                description: "A mobile game developed using Xamarin for Android, GM3 challenges players to spot the differently colored circle in a grid. It features a local database for score tracking and uses XAMPP to enable online gameplay. Designed to be simple, fast-paced, and visually engaging.",
+                tech: ["Xamarin", "Xampp", "SQLite"],
+                github: "https://github.com/yourusername/ecommerce",
+                demo: "https://ecommerce-demo.com",
+                showDemo: false,
+                icon: "images/gm3.png"
+            },
+            {
+                title: "Street Sprinter",
+                description: "A platformer game built in C#, where players dodge obstacles and sprint through fast-paced levels. Designed with responsive controls and engaging pixel-art visuals, it offers a challenging gameplay experience for mobile devices.",
+                tech: ["JavaScript", "API", "Chart.js", "CSS3"],
+                github: "https://github.com/yourusername/weather-dashboard",
+                demo: "#",
+                showDemo: false,
+                icon: "images/streetsprinter.gif"
+            },
+            {
+                title: "Stress Level Prediction",
+                description: "A Python-based system that uses a Naive Bayes model to predict student stress levels from 20 psychological, academic, and environmental inputs. Integrated with XAMPP for web-based interaction and built using scikit-learn.",
+                tech: ["HTML", "Python", "Xampp", "CGI", "Scikit-learn"],
+                github: "https://github.com/yourusername/task-management",
+                demo: "https://task-demo.com",
+                showDemo: false,
+                icon: "images/stress.png"
+            }
+        ];
+
+        let currentProject = 0;
+
+        function renderProjects() {
+            const track = document.getElementById('gallery-track');
+            const indicators = document.getElementById('indicators');
+            
+            if (!track || !indicators) return;
+            
+            track.innerHTML = projects.map(project => `
+                <div class="project-slide">
+                    <div class="project-card">
+                <div class="project-image">
+                    <img src="${project.icon}" alt="${project.title} icon" />
+                </div>
+                        <div class="project-content">
+                            <h3 class="project-title">${project.title}</h3>
+                            <p class="project-description">${project.description}</p>
+                            <div class="project-tech">
+                                ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                            <div class="project-links">
+                                ${project.showGithub ? `
+                                <a href="${project.github}" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                ` : ''}
+                                ${project.showPdf ? `
+                                <a href="${project.pdf}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-file-pdf"></i> More Info
+                                </a>
+                                ` : ''}
+                                ${project.showDemo ? `
+                                    <a href="${project.demo}" class="btn btn-secondary" target="_blank">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            indicators.innerHTML = projects.map((_, index) => `
+                <div class="indicator ${index === 0 ? 'active' : ''}" onclick="goToProject(${index})"></div>
+            `).join('');
+        }
+
+        function updateGallery() {
+            const track = document.getElementById('gallery-track');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            if (!track) return;
+            
+            const translateX = -currentProject * (100 / projects.length);
+            track.style.transform = `translateX(${translateX}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentProject);
+            });
+        }
+
+        function nextProject() {
+            currentProject = (currentProject + 1) % projects.length;
+            updateGallery();
+        }
+
+        function prevProject() {
+            currentProject = (currentProject - 1 + projects.length) % projects.length;
+            updateGallery();
+        }
+
+        function goToProject(index) {
+            currentProject = index;
+            updateGallery();
+        }
+
+        function initializeProjectsGallery() {
+            renderProjects();
+            updateGallery();
+            handleResize();
+        }
+
+        // GSAP hero animations
+        window.addEventListener('DOMContentLoaded', () => {
+            // Initialize projects first
+            initializeProjectsGallery();
+            
             gsap.from(".profile-img-bg", { duration: 1, scale: 0.8, opacity: 0, ease: "power2.out" });
             gsap.from(".hero-title", { duration: 1, y: 50, opacity: 0, delay: 0.3, ease: "power3.out" });
             gsap.from(".hero-description", { duration: 1, y: 50, opacity: 0, delay: 0.6, ease: "power3.out" });
             gsap.from(".cta-buttons .btn", { duration: 1, scale: 0.8, opacity: 0, delay: 0.9, stagger: 0.2, ease: "elastic.out(1, 0.5)" });
 
-            // Render projects dynamically
-            const projects = [
-                {
-                    title: "NPI Inventory Management",
-                    description: "A smart inventory system for tracking and managing non-persistent items with analytics and reporting.",
-                    tech: ["Python", "HTML", "Excel", "Sqlite"],
-                    github: "#",
-                    demo: "#",
-                    icon: "fa-boxes-stacked"
-                },
-                {
-                    title: "AgriKa",
-                    description: "A comprehensive mobile app for agricultural data collection, analysis, and visualization.",
-                    tech: ["Python", "HTML", "Flask", "API"],
-                    github: "#",
-                    demo: "#",
-                    icon: "fa-mobile-alt"
-                },
-                {
-                    title: "Haste-urant",
-                    description: "A real-time web application for restaurant order management and customer engagement.",
-                    tech: ["React", "Socket.io", "MongoDB", "Express"],
-                    github: "#",
-                    demo: "#",
-                    icon: "fa-globe"
-                }
-            ];
+            // Floating blurry balls
+            function dvdBounce(ball, bounds) {
+                let x = Math.random() * (bounds.w - bounds.size);
+                let y = Math.random() * (bounds.h - bounds.size);
+                let dx = (Math.random() > 0.5 ? 1 : -1) * (60 + Math.random() * 40);
+                let dy = (Math.random() > 0.5 ? 1 : -1) * (60 + Math.random() * 40);
 
-            function renderProjects() {
-                const grid = document.getElementById('projects-grid');
-                grid.innerHTML = projects.map(project => `
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas ${project.icon}" style="font-size:2.5rem;color:#2563EB;"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">${project.title}</h3>
-                            <p class="project-description">${project.description}</p>
-                            <div class="project-tech">
-                                ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
-                            </div>
-                            <div class="project-links">
-                                <a href="${project.github}" class="btn btn-secondary" target="_blank">
-                                    <i class="fab fa-github"></i> GitHub
-                                </a>
-                                <a href="${project.demo}" class="btn btn-primary" target="_blank">
-                                    <i class="fas fa-eye"></i> Live Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
+                function animate() {
+                    x += dx * 0.016;
+                    y += dy * 0.016;
+                    if (x <= 0 || x >= bounds.w - bounds.size) dx *= -1;
+                    if (y <= 0 || y >= bounds.h - bounds.size) dy *= -1;
+                    ball.style.left = x + "px";
+                    ball.style.top = y + "px";
+                    requestAnimationFrame(animate);
+                }
+                animate();
             }
-            renderProjects();
+
+            function startBalls() {
+                const balls = [
+                    document.getElementById('blur-ball-1'),
+                    document.getElementById('blur-ball-2'),
+                    document.getElementById('blur-ball-3')
+                ];
+                const bounds = { w: window.innerWidth, h: window.innerHeight, size: 400 };
+                balls.forEach(ball => ball && dvdBounce(ball, bounds));
+            }
+
+            startBalls();
+            window.addEventListener('resize', startBalls);
         });
 
         // Modal functionality (stub)
@@ -225,6 +517,65 @@
             event.preventDefault();
             alert('Message sent!');
         }
+
+        // Auto-play functionality (optional)
+        let autoPlayInterval;
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextProject, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevProject();
+            if (e.key === 'ArrowRight') nextProject();
+        });
+
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const threshold = 50;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    nextProject();
+                } else {
+                    prevProject();
+                }
+            }
+        }
+
+        // Responsive navigation controls
+        function handleResize() {
+            const navControls = document.querySelector('.nav-controls');
+            const desktopNav = document.querySelectorAll('.gallery-container > .nav-btn');
+            
+            if (window.innerWidth <= 600) {
+                if (navControls) navControls.style.display = 'flex';
+                desktopNav.forEach(btn => btn.style.display = 'none');
+            } else {
+                if (navControls) navControls.style.display = 'none';
+                desktopNav.forEach(btn => btn.style.display = 'flex');
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
     </script>
 </body>
 </html>
